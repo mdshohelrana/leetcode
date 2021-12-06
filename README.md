@@ -5,7 +5,17 @@ Given a list of numbers and a number k, return whether any two numbers from the 
 
 For example, given `[10, 15, 3, 7]` and k of `17`, return true since `10 + 7 is 17`.
 
-# Solution
+### Example 1:
+
+Input: nums = `[10, 15, 3, 7]`, key = `17`
+Output: `true`
+
+### Example 2:
+
+Input: nums = `[10, 15, 3, 7]`, key = `5`
+Output: `false`
+
+## Solution
 
 ```
 #include <iostream>;
