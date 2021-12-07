@@ -68,27 +68,25 @@ For example, if our input was `[1, 2, 3, 4, 5]`, the expected output would be `[
 ## Solution
 
 ```
+
 #include <iostream>
 #include <vector>
 using namespace std;
 
-vector<int> products(int *a, int length)
+vector<int> productExceptSelf(vector<int>& nums)
 {
-    vector<int> result;
+    int vSize = nums.size();
+    vector<int> result(vSize, 1);
 
-    for(int i = 0; i < length; i++)
+    for(int i = 0; i < vSize; i++)
     {
-        int product = 1;
-
-        for(int j = 0; j < length; j++)
+        for(int j = 0; j < vSize; j++)
         {
             if(i!=j)
             {
-                product = product * a[j];
+                result[i] = result[i] * nums[j];
             }
         }
-
-        result.push_back(product);
     }
 
     return result;
@@ -104,13 +102,10 @@ void printArray(vector<int> a)
 
 int main()
 {
-    int a[] = {1, 2, 3, 4, 5};
-    int length = sizeof(a)/sizeof(a[0]);
-
-    printArray(products(a,length));
+    vector<int> nums = {1, 2, 3, 4, 5};
+    printArray(productExceptSelf(nums));
 
     return 0;
 }
-
 
 ```
