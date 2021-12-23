@@ -109,3 +109,39 @@ int main()
 }
 
 ```
+
+# Problem 3
+Print duplicate characters from String
+
+## Solution
+
+```
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+void printDupChar(string str)
+{
+    map<char, int> count;
+    for (int i = 0; i < str.length(); i++)
+    {
+        count[str[i]]++;
+    }
+
+    for (auto it : count)
+    {
+        if (it.second > 1)
+            cout << it.first << ", count = " << it.second << "\n";
+    }
+}
+
+int main()
+{
+    string str = "Java";
+    printDupChar(str);
+
+    return 0;
+}
+
+```
