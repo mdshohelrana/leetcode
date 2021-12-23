@@ -153,29 +153,37 @@ Check if two Strings are anagrams of each other?
 
 ```
 #include <iostream>
-#include <map>
-
+#include <algorithm>
 using namespace std;
 
-void printDupChar(string str)
+bool twoStringAnagrams(string &str1, string &str12)
 {
-    map<char, int> count;
-    for (int i = 0; i < str.length(); i++)
-    {
-        count[str[i]]++;
-    }
+    if(str1.length()!=str12.length())
+        return false;
 
-    for (auto it : count)
-    {
-        if (it.second > 1)
-            cout << it.first << ", count = " << it.second << "\n";
-    }
+    sort(str1.begin(), str1.end());
+    sort(str12.begin(), str12.end());
+
+    if(str1!=str12)
+        return false;
+
+    return true;
 }
+
 
 int main()
 {
-    string str = "Java";
-    printDupChar(str);
+    string str1 = "abcd";
+    string str2 = "dcbas";
+
+    if(twoStringAnagrams(str1,str2))
+    {
+        cout << "The two strings are anagram of each other";
+    }
+    else
+    {
+        cout << "The two strings are not anagram of each other";
+    }
 
     return 0;
 }
