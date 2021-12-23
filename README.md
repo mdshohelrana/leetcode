@@ -145,3 +145,80 @@ int main()
 }
 
 ```
+
+# Problem 4
+Check if two Strings are anagrams of each other?
+
+## Solution
+
+```
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+void printDupChar(string str)
+{
+    map<char, int> count;
+    for (int i = 0; i < str.length(); i++)
+    {
+        count[str[i]]++;
+    }
+
+    for (auto it : count)
+    {
+        if (it.second > 1)
+            cout << it.first << ", count = " << it.second << "\n";
+    }
+}
+
+int main()
+{
+    string str = "Java";
+    printDupChar(str);
+
+    return 0;
+}
+
+```
+
+# Problem 5
+Print the first non-repeated character from String
+
+## Solution
+
+```
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+void firstNonRepeatedChar(string str)
+{
+    map<char, int> count;
+    for (int i = 0; i < str.size(); i++)
+    {
+        count[str[i]]++;
+    }
+
+    for (auto it : count)
+    {
+        // cout << it.first << " " << it.second << endl;
+
+        if (it.second == 1)
+        {
+            cout << "First non-repeating character is: " << it.first << " ";
+            break;
+        }
+    }
+}
+
+int main()
+{
+    string str = "ShohelRana";
+    firstNonRepeatedChar(str);
+
+    return 0;
+}
+
+```
